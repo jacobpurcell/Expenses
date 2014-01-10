@@ -1,0 +1,9 @@
+# Visual Studio Generated
+*.suo
+*.user
+
+# Compiled Files
+[Oo]bj/
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
