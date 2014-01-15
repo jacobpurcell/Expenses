@@ -8,10 +8,14 @@
         
         <!-- modules -->
         <script src="js/modules/expenses.js"></script>
+        
+        <!-- directives -->
+        <script src="js/expenses/viewing/directives/expenses-list.js"></script>
     </head>
 
     <body>
         <ng-include src="'js/navigation/templates/navigation.html'"></ng-include>
-        {{ "TEST" }}
+        
+        <expenses-list></expenses-list>
     </body>
 </html>
