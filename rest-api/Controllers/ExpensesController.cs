@@ -12,24 +12,25 @@ namespace Expenses.Controllers
 {
     public class ExpensesController : ApiController
     {
+        private const string JsonMediaType = "application/json";
+
         // GET api/values
         public HttpResponseMessage Get()
         {
-            //return new string[] { "value1", "value2" };
-
             var data = new []
             {
                 new {FieldA = "1", FieldB = "2"},
                 new {FieldA = "10", FieldB = "20"}
             };
 
-            return Request.CreateResponse(HttpStatusCode.OK, data, new MediaTypeWithQualityHeaderValue("application/json"));
+            return Request.CreateResponse(HttpStatusCode.OK, data, JsonMediaType);
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            return "value";
+            var data =  new {FieldA = "10", FieldB = "20"};
+            return Request.CreateResponse(HttpStatusCode.OK, data, JsonMediaType);
         }
 
         // POST api/values
