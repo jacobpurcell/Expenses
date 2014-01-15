@@ -1,1 +1,1 @@
-﻿var app = angular.module('Expenses', []);
+﻿var app = angular.module('Expenses', ['ui.bootstrap']);
