@@ -6,6 +6,7 @@
         
         <!-- custom styles -->
         <link rel="stylesheet" href="css/expenses-list.css"/>
+        <link rel="stylesheet" href="css/expense-form.css"/>
 
         <!-- libs -->
         <script src="lib/angular/angular-1.2.7.js"></script>
@@ -20,11 +21,14 @@
         
         <!-- directives -->
         <script src="js/expenses/viewing/directives/expenses-list.js"></script>
+        <script src="js/expenses/creation/directives/expense-form.js"></script>
     </head>
 
     <body>
         <ng-include src="'js/navigation/templates/navigation.html'"></ng-include>
         
+        <expense-form></expense-form>
+
         <expenses-list></expenses-list>
     </body>
 </html>
