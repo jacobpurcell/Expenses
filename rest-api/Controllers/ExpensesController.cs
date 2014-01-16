@@ -13,8 +13,8 @@ namespace Expenses.Controllers
         {
             var data = new []
             {
-                new {FieldA = "1", FieldB = "2"},
-                new {FieldA = "10", FieldB = "20"}
+                new { ReceiptNumber="1", Date = "2/2/12", Description="Description goes here", Miles="10", CurrencyAmount="10.20", CurrencyCode="GBP", ExchangeRate="1.0" },
+                new { ReceiptNumber="10", Date = "20/1/14", Description="Description goes here", Miles="10", CurrencyAmount="10.20", CurrencyCode="GBP", ExchangeRate="1.0" }
             };
 
             return Request.CreateResponse(HttpStatusCode.OK, data, JsonMediaType);
@@ -23,7 +23,7 @@ namespace Expenses.Controllers
         // GET api/values/5
         public HttpResponseMessage Get(int id)
         {
-            var data =  new {FieldA = "10", FieldB = "20"};
+            var data =  new { ReceiptNumber = "10", Date = "20/12/12", Description="Description goes here", Miles="10", CurrencyAmount="10.20", CurrencyCode="GBP", ExchangeRate="1.0" };
             return Request.CreateResponse(HttpStatusCode.OK, data, JsonMediaType);
         }
 
