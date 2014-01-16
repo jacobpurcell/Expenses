@@ -1,1 +1,1 @@
-﻿var app = angular.module('Expenses', ['ui.bootstrap', 'ngResource']);
+﻿var app = angular.module('Expenses', ['ui.bootstrap', 'ngResource', 'ngGrid']);
