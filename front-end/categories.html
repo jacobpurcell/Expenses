@@ -1,39 +1,27 @@
-﻿<!DOCTYPE html>
-<html  ng-app>
-<head>
-    <title></title>
+﻿<html ng-app="Expenses">
+    <head>
         <!-- libs styles -->
-    <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/ng-grid.css"/>
         
-    <!-- custom styles -->
+        <!-- custom styles -->
 
-    <!-- libs -->
-    <script src="lib/angular/angular-1.2.7.js"></script>
-    <script src="lib/jQuery/jquery-1.10.2.js"></script>
-    <script src="lib/angular/angular-resource.js"></script>
-    <script src="lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
-    <script src="lib/underscore/underscore.js"></script>
-
-    <script type="text/javascript">
-        function CategoryController($scope) {
-            $scope.categories = [];
-            $scope.addCategory = function () {
-                $scope.categories.push($scope.newCategory);
-            };
-        }
-</script>
-
-</head>
-<body ng-controller="CategoryController">
-    <table class="table">
-        <thead>
-        </thead>
-        <tbody>
-            <tr ng-repeat="category in categories">
-                <td>{{ category.Name }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <!-- libs -->
+        <script src="lib/angular/angular-1.2.7.js"></script>
+        <script src="lib/jQuery/jquery-1.10.2.js"></script>
+        <script src="lib/angular/angular-resource.js"></script>
+        <script src="lib/angular-grid/ng-grid-2.0.7.debug.js"></script>
+        <script src="lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+        <script src="lib/underscore/underscore.js"></script>
+        
+        <!-- modules -->
+        <script src="js/modules/expenses.js"></script>
+        
+        <!-- directives -->
+        <script src="js/expenses/viewing/directives/categories-list.js"></script>
+    </head>
+<body>
+    <categories-list></categories-list>
     <input type="text" ng-model="newCategory.Name">
     <button ng-click="addCategory()">Add</button>
 
