@@ -1,0 +1,13 @@
+﻿<div class="expense-claim-request-form">
+    
+    <h4>Expense Claim Details</h4>
+    
+    <div class="fields">
+        <div class="field" ng-repeat="field in fields">
+            <span class="name">{{ field.name }}</span>
+            <input class="name" type="text" ng-model="field.value"></input>
+        </div>
+    </div>
+    
+    <button ng-click="createExpense()">Add Expense</button>
+</div>
