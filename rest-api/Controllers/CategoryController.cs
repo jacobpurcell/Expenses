@@ -38,8 +38,24 @@ namespace Expenses.Controllers
             // TODO: get the categories from the posted data
             var categories = new object[]
             {
-                new { Name="Train", Details = new { OutDate="01/01/1900", From="Startpoint", To="Destination"} },
-                new { Name="Car Rental", Details = new { NumberOfDays=10 } }
+                new 
+                { 
+                    Name="Train", 
+                    Details = new []
+                    {
+                        new { Name="OutDate", Type="DateTime", Required=false, Value="01/01/2014"}, 
+                        new { Name="From", Type="string", Required=false, Value=""}, 
+                        new { Name="To", Type="string", Required=false, Value=""}
+                    } 
+                },
+                new 
+                { 
+                    Name="Car Rental", 
+                    Details = new []
+                    {
+                        new { Name="NumberOfDays", Type="Integer", Required=false, Value=10 }
+                    }  
+                },
             };
 
             var repository = new Repository();
