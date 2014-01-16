@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
@@ -13,8 +14,9 @@ namespace Expenses.Controllers
         {
             var data = new []
             {
-                new {FieldA = "1", FieldB = "2"},
-                new {FieldA = "10", FieldB = "20"}
+                new {ClaimNumber = "123", ReceiptNumber = "1", Custom = "Jacob", Date = "01/01/2014", Amount = "123.45", Currency = "GBP", Rate = "1", SterlingValue = "123.45" },
+                new {ClaimNumber = "123", ReceiptNumber = "1", Custom = "Jacob", Date = "01/01/2014", Amount = "200.25", Currency = "GBP", Rate = "1", SterlingValue = "200.25" },
+                new {ClaimNumber = "123", ReceiptNumber = "1", Custom = "Magda", Date = "05/01/2014", Amount = "100.50", Currency = "GBP", Rate = "1", SterlingValue = "100.50" },
             };
 
             return Request.CreateResponse(HttpStatusCode.OK, data, JsonMediaType);
@@ -30,11 +32,13 @@ namespace Expenses.Controllers
         // POST api/values
         public void Post([FromBody]string value)
         {
+            // Check whether expense has been paid, and do not allow changing if it has
         }
 
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
+            // Check whether expense has been paid, and do not allow changing if it has
         }
 
         // DELETE api/values/5
