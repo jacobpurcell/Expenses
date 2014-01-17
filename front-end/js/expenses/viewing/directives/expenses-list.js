@@ -3,7 +3,7 @@
 });
 
 app.factory('visibleColumns', function () {
-    return ["Project", "Date", "Amount", "Date", "Currency", "Rate", "Sterling"];
+    return ["Name", "Project", "Date", "Amount", "Currency", "Rate", "Sterling"];
 });
 
 app.factory('expensesResource', ['$resource', 'apiUrl', function($resource, apiUrl) {
