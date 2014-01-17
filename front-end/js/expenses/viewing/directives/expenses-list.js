@@ -7,8 +7,11 @@ app.factory('visibleColumns', function() {
     //return ["ClaimNumber"];
 });
 
-app.factory('expensesList', ['$q', '$resource', 'apiUrl', function ($q, $resource, apiUrl) {
-    var expensesResource = $resource(apiUrl + '/api/expenses/:id');
+app.factory('expensesResource', ['$resource', 'apiUrl', function($resource, apiUrl) {
+    return $resource(apiUrl + '/api/expenses/:id');
+}]);
+
+app.factory('expensesList', ['$resource', 'apiUrl', 'expensesResource', function ($resource, apiUrl, expensesResource) {
     var expenses = expensesResource.query(function () {
     }, true);
 
