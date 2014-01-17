@@ -3,7 +3,15 @@
         </thead>
         <tbody>
             <tr ng-repeat="category in categories">
-                <td>{{ category.Name }}</td>
+                <td>{{ category.Name }}      
+                    <div ng-repeat="detail in category.Details">
+                        ----
+                        <div><label>Name: </label>{{ detail.Name }}</div>
+                        <div><label>Type: </label>{{ detail.Type }}</div>
+                        <div><label>Required: </label>{{ detail.Required }}</div>
+                    </div>
+
+                </td>
             </tr>
         </tbody>
     </table>
