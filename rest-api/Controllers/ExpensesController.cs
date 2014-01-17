@@ -2,12 +2,15 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Expenses.Models;
+using Newtonsoft.Json.Linq;
 
 namespace Expenses.Controllers
 {
     public class ExpensesController : ApiController
     {
         private const string JsonMediaType = "application/json";
+        private Repository repository = new Repository("Expenses");
 
         // GET api/values
         public HttpResponseMessage Get()
@@ -30,9 +33,12 @@ namespace Expenses.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post(HttpRequestMessage request)
         {
             // Check whether expense has been paid, and do not allow changing if it has
+            var rawData = request.Content.ReadAsStringAsync().Result;  // Reading the request directly allows us to post arbitrary JSON objects
+            var parsedExpense = JObject.Parse(rawData);
+            repository.SaveCategory(parsedExpense);
         }
 
         // PUT api/values/5
