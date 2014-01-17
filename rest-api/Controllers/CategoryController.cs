@@ -15,11 +15,11 @@ namespace Expenses.Controllers
     public class CategoryController : ApiController
     {
         private const string JsonMediaType = "application/json";
+        private Repository repository = new Repository();
 
         // GET api/category
         public HttpResponseMessage Get()
         {
-            var repository = new Repository();
             var categories = repository.GetCategories();
 
             return Request.CreateResponse(HttpStatusCode.OK, categories, JsonMediaType);
@@ -58,8 +58,6 @@ namespace Expenses.Controllers
                 },
             };
 
-            var repository = new Repository();
-            repository.SaveCategories(categories);
         }
 
         // PUT api/category/5
