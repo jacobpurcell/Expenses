@@ -1,13 +1,19 @@
-﻿<div class="expense-claim-request-form">
+﻿<form class="expense-claim-request-form" name="claimForm">
     
     <h4>Expense Claim Details</h4>
     
     <div class="fields">
-        <div class="field" ng-repeat="field in fields">
-            <span class="name">{{ field.name }}</span>
-            <input class="name" type="text" ng-model="field.value"></input>
+        <div class="form-group" ng-repeat="field in fields" ng-class="{ 'has-error': innerForm.input.$error.required || innerForm.input.$error.pattern } ">
+            <ng-form name="innerForm">
+                <label class="name">{{ field.name }}</label><span ng-show="field.required"> *</span>
+                <span ng-switch on="field.type">
+                    <input ng-switch-when="String" class="form-control" type="text" name="input" ng-model="field.value" ng-required="field.required"></input>
+                    <input ng-switch-when="Date"   class="form-control" type="date" name="input" ng-model="field.value" ng-required="field.required"></input>
+                    <input ng-switch-when="Decimal" class="form-control" type="text" ng-pattern="/^\d{0,9}(\.\d{1,9})?$/" name="input" ng-model="field.value" ng-required="field.required"></input>
+                </span>
+            </ng-form>
         </div>
     </div>
     
-    <button ng-click="createExpense()">Add Expense</button>
-</div>
+    <button ng-click="createExpense()" ng-disabled="claimForm.$invalid">Add Expense</button>
+</form>
