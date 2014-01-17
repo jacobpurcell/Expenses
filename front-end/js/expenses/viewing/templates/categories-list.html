@@ -3,7 +3,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="category in categories">
-                <td>{{ category.Name }}      
+                <td>{{ category.Name }}      <delete-category></delete-category>
                     <div ng-repeat="detail in category.Details">
                         ----
                         <div><label>Name: </label>{{ detail.Name }}</div>

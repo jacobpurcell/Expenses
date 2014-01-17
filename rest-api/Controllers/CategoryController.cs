@@ -47,9 +47,10 @@ namespace Expenses.Controllers
         {
         }
 
-        // DELETE api/category/5
-        public void Delete(int id)
+        // DELETE api/category/categoryName
+        public void Delete(string categoryName)
         {
+            repository.RemoveCategoryByName(categoryName);
         }
     }
 }
