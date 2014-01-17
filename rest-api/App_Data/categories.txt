@@ -1,2 +1,3 @@
-{"Name":"Train","Details":{"OutDate":"01/01/1900","From":"Startpoint","To":"Destination"}}
-{"Name":"Car Rental","Details":{"NumberOfDays":10}}
+{"Name":"Taxi"}
+{"Name":"Ferry","Details":[{"Name":"Port","Type":"String","Required":true}]}
+{"Name":"Boat","Details":[{"Name":"Port","Type":"String","Required":true},{"Name":"Destination Port","Type":"String"}]}
