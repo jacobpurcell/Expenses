@@ -16,7 +16,7 @@ namespace Expenses.Controllers
     public class CategoryController : ApiController
     {
         private const string JsonMediaType = "application/json";
-        private Repository repository = new Repository();
+        private Repository repository = new Repository("Categories");
 
         // GET api/category
         public HttpResponseMessage Get()
