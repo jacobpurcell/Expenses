@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\categories.txt" />
+    <Content Include="App_Data\category_structure.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
