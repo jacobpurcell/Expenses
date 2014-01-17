@@ -13,7 +13,10 @@ app.directive('expenseForm', [function () {
     return {
         restrict: 'E',
         templateUrl: 'js/expenses/creation/templates/expense-form.html',
-        controller: function ($scope, commonFields, $resource, expensesResource) {
+        scope: {
+            onExpenseAdded: '=?'
+        },
+        controller: function ($scope, commonFields, $resource, expensesResource, expensesList) {
             $scope.fields = _(commonFields).map(function (field) {
                 return {
                     name: field.name,
@@ -30,7 +33,11 @@ app.directive('expenseForm', [function () {
                     expense[field.name] = field.value;
                 });
                 
-                expense.$save();
+                expense.$save().then(function() {
+                    expensesList.push(expense);
+                });
+
+                $scope.onExpenseAdded && $scope.onExpenseAdded();
             };
         }
     };
