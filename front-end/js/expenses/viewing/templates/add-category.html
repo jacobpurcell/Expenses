@@ -1,2 +1,24 @@
-﻿    <input type="text" ng-model="newCategory.Name">
-    <button ng-click="addCategory()">Add</button>
+﻿<h2>Add Category</h2>
+<div><label>Create a new category called: </label><input type="text" ng-model="newCategory.Name">    
+   
+<div class="add-field">
+    <label>Add a field called: </label> <input type="text" ng-model="newDetail.Name">
+    <label>of type </label> <input type="text" ng-model="newDetail.Type">
+    <label>required? </label> <input type="checkbox" ng-model="newDetail.Required">
+    <button ng-click="addDetail()">Add Field</button>
+</div> 
+
+<button ng-click="saveCategory()">Save Category</button></div>
+<h3>Preview of New Category Fields</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr><th>Name</th><th>Type</th><th>Required</th></tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="detail in newCategory.Details">
+            <td>{{ detail.Name }}</td>
+            <td>{{ detail.Type }}</td>
+            <td>{{ detail.Required }}</td>
+        </tr>
+    </tbody>
+</table>

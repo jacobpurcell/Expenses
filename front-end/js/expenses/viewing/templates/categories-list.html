@@ -1,9 +1,23 @@
-﻿    <table class="table">
+﻿
+    <h2>Existing Categories</h2> 
+    <table class="table table-striped table-bordered">
         <thead>
+            <tr>
+                <th></th>
+                <th>Fields</th>
+            </tr>
         </thead>
         <tbody>
             <tr ng-repeat="category in categories">
-                <td>{{ category.Name }}</td>
+                <td><strong>{{ category.Name }}</strong></td>
+                <td>      
+                    <div ng-repeat="detail in category.Details">
+                        <div><em>Name: </em>{{ detail.Name }}</div>
+                        <div><em>Data Type: </em>{{ detail.Type }}</div>
+                        <div><em>Required?: </em>{{ detail.Required }}</div>
+                        <hr/>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

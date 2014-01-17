@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="css/ng-grid.css"/>
         
         <!-- custom styles -->
+        <link href="css/categories-list.css" rel="stylesheet" />
 
         <!-- libs -->
         <script src="lib/angular/angular-1.2.7.js"></script>
@@ -21,8 +22,12 @@
         <script src="js/expenses/viewing/directives/categories-list.js"></script>
         <script src="js/expenses/viewing/directives/add-category.js"></script>
     </head>
-<body>
-    <categories-list></categories-list>
-    <add-category></add-category>
-</body>
+    <body>
+        <ng-include src="'js/navigation/templates/navigation.html'"></ng-include>
+
+        <div class="row">
+            <div class="col-md-4"><categories-list></categories-list></div>
+            <div class="col-md-8"><add-category></add-category></div>
+        </div>
+    </body>
 </html>
