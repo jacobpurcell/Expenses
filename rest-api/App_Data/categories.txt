@@ -1,3 +1,2 @@
-{"Name":"Taxi"}
-{"Name":"Ferry","Details":[{"Name":"Port","Type":"String","Required":true}]}
-{"Name":"Boat","Details":[{"Name":"Port","Type":"String","Required":true},{"Name":"Destination Port","Type":"String"}]}
+{"Name":"Car Rental","Details":[{"Name":"Number of Days","Type":"integer","Required":true}]}
+{"Name":"Meals and Drinks","Details":[{"Name":"Number of People","Type":"Integer","Required":true},{"Name":"Initials of People","Type":"string","Required":true}]}
