@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Http;
 using Expenses.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Expenses.Controllers
 {
@@ -33,9 +34,12 @@ namespace Expenses.Controllers
         }
 
         // POST api/category
-        public void Post([FromBody]string value)
+        public void Post(HttpRequestMessage req) //[FromBody]string value  
         {
-            // TODO: get the categories from the posted data
+            var data = req.Content.ReadAsStringAsync().Result;  // Reading the request directly allows us to post arbitrary JSON objects
+            var obj = JObject.Parse(data);
+            var category = (object)obj["category"];
+            repository.SaveCategory(category);
         }
 
         // PUT api/category/5

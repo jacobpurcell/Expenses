@@ -36,5 +36,16 @@ namespace Expenses.Models
             
             file.Close();
         }
+
+        public void SaveCategory(object category)
+        {
+            // Write the string to a file.
+            System.IO.StreamWriter file = new System.IO.StreamWriter(HttpContext.Current.Server.MapPath("~/App_Data/categories.txt"), true);
+
+            var line = JsonConvert.SerializeObject(category);
+            file.WriteLine(line);
+            
+            file.Close();
+        }
     }
 }
