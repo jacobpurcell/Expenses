@@ -2,9 +2,8 @@
     return "/ExpensesApi";
 });
 
-app.factory('visibleColumns', function() {
-    return ["ClaimNumber", "ReceiptNumber", "Customer", "Date", "Country", "Amount", "Currency", "Rate", "SterlingValue"];
-    //return ["ClaimNumber"];
+app.factory('visibleColumns', function () {
+    return ["Project", "Date", "Amount", "Date", "Currency", "Rate", "Sterling"];
 });
 
 app.factory('expensesResource', ['$resource', 'apiUrl', function($resource, apiUrl) {
