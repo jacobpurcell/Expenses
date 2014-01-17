@@ -10,10 +10,11 @@
                     <input ng-switch-when="String" class="form-control" type="text" name="input" ng-model="field.value" ng-required="field.required"></input>
                     <input ng-switch-when="Date"   class="form-control" type="date" name="input" ng-model="field.value" ng-required="field.required"></input>
                     <input ng-switch-when="Decimal" class="form-control" type="text" ng-pattern="/^\d{0,9}(\.\d{1,9})?$/" name="input" ng-model="field.value" ng-required="field.required"></input>
+                    <input ng-switch-when="Currency" class="form-control" type="text" ng-pattern="/^\d{0,9}(\.\d{1,2})?$/" name="input" ng-model="field.value" ng-required="field.required"></input>
                 </span>
             </ng-form>
         </div>
     </div>
     
-    <button ng-click="createExpense()" ng-disabled="claimForm.$invalid">Add Expense</button>
+    <button ng-click="createExpense(fields)" ng-disabled="claimForm.$invalid">Add Expense</button>
 </form>
