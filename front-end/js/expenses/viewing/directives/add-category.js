@@ -15,7 +15,7 @@
                 newCategoryResource.category = $scope.newCategory;
                 newCategoryResource.$save({}, function success() {
                     $scope.categories.push($scope.newCategory);
-                    //$scope.newCategory = null;
+                    $scope.newCategory = null;
                 }, function err() {
                      /* we'd want some kind of flash here */
                 });
