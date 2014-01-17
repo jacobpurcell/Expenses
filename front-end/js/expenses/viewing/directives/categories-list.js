@@ -1,4 +1,4 @@
-﻿app.factory('apiUrl', function () {
+﻿app.factory('apiUrl', function () {  // TODO: shouldn't this go in expenses.js?
     return "/ExpensesApi";
 });
 
@@ -16,9 +16,6 @@ app.directive('categoriesList', function () {
         templateUrl: 'js/expenses/viewing/templates/categories-list.html',
         controller: function ($scope, categoriesList) {
             $scope.categories = categoriesList;
-            $scope.addCategory = function () {
-                $scope.categories.push($scope.newCategory);
-            };
         }
     };
 });
