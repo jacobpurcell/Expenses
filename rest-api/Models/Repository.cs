@@ -14,9 +14,9 @@ namespace Expenses.Models
             _name = name;
         }
 
-        public IEnumerable GetCategories()
+        public IEnumerable GetItems()
         {
-            ArrayList categories = new ArrayList();
+            ArrayList items = new ArrayList();
 
             // Read the file and display it line by line.
             System.IO.StreamReader file =
@@ -24,19 +24,19 @@ namespace Expenses.Models
             string line;
             while ((line = file.ReadLine()) != null)
             {
-                categories.Add(JsonConvert.DeserializeObject(line));
+                items.Add(JsonConvert.DeserializeObject(line));
             }
 
             file.Close();
 
-            return categories;
+            return items;
         }
 
-        public void SaveCategories(object[] categories)
+        public void SaveItems(object[] items)
         {
             // Write the string to a file.
             System.IO.StreamWriter file = new System.IO.StreamWriter(HttpContext.Current.Server.MapPath(Path));
-            foreach (var category in categories)
+            foreach (var category in items)
             {
                 var line = JsonConvert.SerializeObject(category);
                 file.WriteLine(line);
@@ -45,12 +45,12 @@ namespace Expenses.Models
             file.Close();
         }
 
-        public void SaveCategory(object category)
+        public void SaveItem(object item)
         {
             // Write the string to a file.
             System.IO.StreamWriter file = new System.IO.StreamWriter(HttpContext.Current.Server.MapPath(Path), true);
 
-            var line = JsonConvert.SerializeObject(category);
+            var line = JsonConvert.SerializeObject(item);
             file.WriteLine(line);
             
             file.Close();

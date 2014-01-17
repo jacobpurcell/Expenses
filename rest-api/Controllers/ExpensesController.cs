@@ -10,18 +10,12 @@ namespace Expenses.Controllers
     public class ExpensesController : ApiController
     {
         private const string JsonMediaType = "application/json";
-        private Repository repository = new Repository("Expenses");
+        private readonly Repository repository = new Repository("Expenses");
 
         // GET api/values
         public HttpResponseMessage Get()
         {
-            var data = new []
-            {
-                new {ClaimNumber = "123", ReceiptNumber = "1", Custom = "Jacob", Date = "01/01/2014", Amount = "123.45", Currency = "GBP", Rate = "1", SterlingValue = "123.45" },
-                new {ClaimNumber = "123", ReceiptNumber = "1", Custom = "Jacob", Date = "01/01/2014", Amount = "200.25", Currency = "GBP", Rate = "1", SterlingValue = "200.25" },
-                new {ClaimNumber = "123", ReceiptNumber = "1", Custom = "Magda", Date = "05/01/2014", Amount = "100.50", Currency = "GBP", Rate = "1", SterlingValue = "100.50" },
-            };
-
+            var data = repository.GetItems();
             return Request.CreateResponse(HttpStatusCode.OK, data, JsonMediaType);
         }
 
@@ -38,7 +32,7 @@ namespace Expenses.Controllers
             // Check whether expense has been paid, and do not allow changing if it has
             var rawData = request.Content.ReadAsStringAsync().Result;  // Reading the request directly allows us to post arbitrary JSON objects
             var parsedExpense = JObject.Parse(rawData);
-            repository.SaveCategory(parsedExpense);
+            repository.SaveItem(parsedExpense);
         }
 
         // PUT api/values/5

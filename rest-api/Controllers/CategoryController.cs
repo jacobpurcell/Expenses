@@ -16,12 +16,12 @@ namespace Expenses.Controllers
     public class CategoryController : ApiController
     {
         private const string JsonMediaType = "application/json";
-        private Repository repository = new Repository("Categories");
+        private readonly Repository repository = new Repository("Categories");
 
         // GET api/category
         public HttpResponseMessage Get()
         {
-            var categories = repository.GetCategories();
+            var categories = repository.GetItems();
 
             return Request.CreateResponse(HttpStatusCode.OK, categories, JsonMediaType);
         }
@@ -39,7 +39,7 @@ namespace Expenses.Controllers
             var data = req.Content.ReadAsStringAsync().Result;  // Reading the request directly allows us to post arbitrary JSON objects
             var obj = JObject.Parse(data);
             var category = (object)obj["category"];
-            repository.SaveCategory(category);
+            repository.SaveItem(category);
         }
 
         // PUT api/category/5
